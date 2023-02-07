@@ -12,7 +12,7 @@
             @foreach ($posts as $post)
                 <div class="col-sm-6 col-md-4">
                     <div class="card h-100">
-                        <img src="{{ asset($post->uploaded_img ? "storage/app/lorempicsum{$post->uploaded_img}" : "storage/placeholder.jpg") }}" class="card-img-top" alt="{{ $post->title }}">
+                        <img src="{{ asset($post->uploaded_img ? "storage/{$post->uploaded_img}" : "storage/placeholder.jpg") }}" class="card-img-top" alt="{{ $post->title }}">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">{{ $post->title }}</h5>
                             <p class="card-text flex-grow-1">{{ $post->excerpt }}</p>
@@ -22,7 +22,6 @@
                 </div>
             @endforeach
         </div>
-
         <div class="mt-3">
             {{ $posts->links() }}
         </div>

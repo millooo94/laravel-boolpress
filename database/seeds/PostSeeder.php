@@ -21,10 +21,10 @@ class PostSeeder extends Seeder
         $tags = Tag::all()->pluck('id');
         $tagCount = count($tags);
 
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             $title = $faker->words(rand(3, 7), true);
 
-            $number = rand(1, 20);
+            $number = rand(0, 276);
             if ($number) {
                 $contents = new File(__DIR__ . '/../../storage/app/lorempicsum/picsum' . $number . '.jpg');
                 // $tmp_img_url = $faker->image();
@@ -43,6 +43,7 @@ class PostSeeder extends Seeder
                 'excerpt'       => $faker->paragraph(),
             ]);
 
+            // questa riga scrive nella tabella ponte
             $post->tags()->attach($faker->randomElements($tags, rand(0, ($tagCount > 10) ? 10 : $tagCount)));
         }
     }

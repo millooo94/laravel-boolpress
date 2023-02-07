@@ -18,8 +18,14 @@ class Post extends Model
         return $this->belongsToMany('App\Tag');
     }
 
+    // per usare nei link lo slug anzichè l'id
     public function getRouteKeyName()
     {
         return 'slug';
     }
+
+    public function searchBar($query) {
+        return $this->where('title', 'like', "%$query%")
+          ->get();
+      }
 }

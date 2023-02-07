@@ -15,6 +15,7 @@ class Tag extends Model
         return $this->belongsToMany('App\Post');
     }
 
+    // per usare nei link lo slug anzichè l'id
     public function getRouteKeyName()
     {
         return 'slug';

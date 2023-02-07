@@ -15,7 +15,7 @@ class Category extends Model
         return $this->hasMany('App\Post');
     }
 
-
+    // per usare nei link lo slug anzichè l'id
     public function getRouteKeyName()
     {
         return 'slug';

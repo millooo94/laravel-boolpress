@@ -1,3 +1,5 @@
+
+
 <?php
 
 use Illuminate\Http\Request;
@@ -14,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/posts', 'Api\PostController@index')->name('posts.index');
-Route::get('/posts/{post:id}', 'Api\PostController@show')->name('posts.show');
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
+Route::get('/posts', 'Api\PostController@index')->name('posts.index');
+Route::get('/posts/search', 'Api\PostController@searchBar')->name('posts.searchBar');
+Route::get('/posts/random', 'Api\PostController@random')->name('posts.random');
+Route::get('/posts/{post}', 'Api\PostController@show')->name('posts.show');
